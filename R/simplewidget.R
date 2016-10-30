@@ -53,8 +53,10 @@ renderSimplewidget <- function(expr, env = parent.frame(), quoted = FALSE) {
 
 #' @importFrom htmltools tags tagList
 simplewidget_html <-  function(id, style, class, ...){
-  tags$div(
-    tags$h1(id="someid", "My header"),
-    tags$div(id = id, style = style, class = class)
+  renderTags(
+    tags$div(
+      tags$h1(id="someid", "My header"),
+      tags$div(id = id, style = style, class = class)
+    )
   )
 }
