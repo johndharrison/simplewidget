@@ -50,3 +50,11 @@ renderSimplewidget <- function(expr, env = parent.frame(), quoted = FALSE) {
   if (!quoted) { expr <- substitute(expr) } # force quoted
   htmlwidgets::shinyRenderWidget(expr, simplewidgetOutput, env, quoted = TRUE)
 }
+
+#' @importFrom htmltools tags tagList
+simplewidget_html <-  function(id, style, class, ...){
+  tags$div(
+    tags$h1(id="someid", "My header"),
+    tags$div(id = id, style = style, class = class)
+  )
+}
